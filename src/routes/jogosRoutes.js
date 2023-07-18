@@ -12,10 +12,11 @@ const { checkAuth } = require("../middlewares/auth");
 router.get("/mostratodos", jogosController.exibeTodos)
 router.post("/novojogo", jogosController.cadastraJogo)
 router.patch("/editajogo/:id", jogosController.atualizaJogo)
-router.delete("/deletajogo/:id", jogosController.deletaJogo)
+router.delete("/deletajogo/:id", checkAuth, jogosController.deletaJogo)
 
 //rotas para USUARIOS
 router.post("/criar", userController.criaCadastro)
+router.get("/todosusuarios", userController.exibeUsuarios)
 
 //rotas de autenticação
 router.post("/login", authController.login);

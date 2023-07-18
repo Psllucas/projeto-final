@@ -28,7 +28,21 @@ const criaCadastro = async (req, res) => {
     })
   }
 }
+const exibeUsuarios = async(req,res)=>{
+  let query = { }
+  try {
+      const todosCliente= await userSchema.find(query)
+      res.status(200).json({
+          message: "Todos os USUARIOS",
+          resultados: todosCliente})
+  } catch (error) {
+      res.status(500).json({
+          message: error.message
+      })
+  }
+}
 
 module.exports = {
-    criaCadastro
+    criaCadastro,
+    exibeUsuarios
 }

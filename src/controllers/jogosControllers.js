@@ -41,7 +41,7 @@ const atualizaJogo = async(req,res)=>{
         const encontrarJogos = await jogoSchema.findById(req.params.id)
     if (!encontrarJogos){
         return res.status(404).send({
-            message: "Filme não encontrado"
+            message: "Jogo não encontrado"
         })
     }
     if(nome) encontrarJogos.nome=nome
